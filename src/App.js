@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import edgy from './edgy.png';
+import logo from './am-labs-logo.png'
 
 
 
@@ -25,6 +26,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        {/* Replace the image with the Ambassador Logo by 
+        replacing "edgy" with "logo" below */}
         <img src={edgy}/> 
         <div title={"Server: " + quote.server}>
         {quote.quote}
