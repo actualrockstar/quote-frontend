@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+
 import './App.css';
+import axios from 'axios';
+import {useEffect, useState} from 'react';
+import edgy from './edgy.png';
+
+
 
 function App() {
+  const [quote, setQuote] = useState({quote:[]});
+  const baseURL = "http://quote.default.svc.cluster.local:80/"
+
+  const getQuote = () => {
+    axios.get(baseURL)
+      .then((res, err) => {
+        if(res.status === 200){
+          console.log(res.data)
+          setQuote(res.data)
+          console.log(quote)
+        }
+      });
+    };
+ 
+     
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={edgy}/> 
+        <div title={"Server: " + quote.server}>
+        {quote.quote}
+        </div>
+        <div>
+        <button onClick={getQuote}>Generate A New Quote</button>
+        </div>
       </header>
+      
     </div>
   );
 }
