@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import {useState} from 'react';
 import edgy from './edgy.png';
-import logo from './amb-labs-logo.png'
+import logo from './new_edgy.png'
 
 
 
@@ -15,9 +15,9 @@ function App() {
   const baseURL = "/backend/"
   const config = {
     headers: {
-      "x-telepresence-id": "20af3d89-4052-4d08-8fb7-0603fc9bd53c:quotefrontend",
+      "x-telepresence-intercept-id": "bae00cbc-9817-40ec-9c3b-c04afb3a447a:quote",
     }
-  }
+  };
 
 
 
@@ -38,7 +38,7 @@ function App() {
       <header className="App-header">
         {/* Replace the image with the Ambassador Logo by 
         replacing "edgy" with "logo" below */}
-        <img src={logo} alt="image"/> 
+        <img src={logo} alt="image" style={{width: "50%"}}/> 
         <div title={"Server: " + quote.server}>
         {quote.quote}
         </div>
